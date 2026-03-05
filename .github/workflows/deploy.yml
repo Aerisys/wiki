@@ -1,4 +1,4 @@
-name: Deploy Vue.js to VPS
+name: Deploy to VPS
 
 on:
   push:
@@ -10,21 +10,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: ? Cloner le d�p�t
+      - name: 📂 Cloner le dépôt
         uses: actions/checkout@v3
 
-      - name: ? Installer Node.js
+      - name: 🔧 Installer Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 22
 
-      - name: ? Installer les d�pendances
+      - name: 📦 Installer les dépendances
         run: npm install
 
-      - name: ?? Build du projet
+      - name: 🏗️ Build du projet
         run: npm run build
 
-      - name: ? D�ployer sur le VPS
+      - name: 🚀 Déployer sur le VPS
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.VPS_HOST }}
